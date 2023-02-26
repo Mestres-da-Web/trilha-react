@@ -5,10 +5,7 @@ function App() {
   return (
     <div>
       <h1>Hello world</h1>
-      <FirstComponent />
-      <FirstComponent />
-      <FirstComponent />
-      <FirstComponent />
+      <FirstComponent description={"Esse é o tipo correto"} />
       <FirstComponent />
     </div>
   );
