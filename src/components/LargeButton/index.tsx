@@ -5,7 +5,16 @@ interface LargeButtonProps {
 }
 
 function LargeButton({ onClickComponent }: LargeButtonProps) {
-  return <button onClick={onClickComponent}>Apagar</button>;
+  return (
+    <div
+      style={{ backgroundColor: "green", padding: 20 }}
+      onClick={() => {
+        alert("Evento de clique na div");
+      }}
+    >
+      <button onClick={onClickComponent}>Apagar</button>;
+    </div>
+  );
 }
 
 export default LargeButton;

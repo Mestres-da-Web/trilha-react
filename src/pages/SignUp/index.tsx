@@ -4,8 +4,9 @@ function SignUp() {
   const handleLargeButtonClick = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
-    console.log(e);
-    alert("Olá props");
+    e.stopPropagation();
+    e.preventDefault();
+    alert("Evento de clique no botão");
   };
 
   return (
