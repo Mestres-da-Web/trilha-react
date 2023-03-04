@@ -1,19 +1,20 @@
 interface LargeButtonProps {
-  onClickComponent: (
+  title: string;
+  type?: "submit" | "button";
+  onClickComponent?: (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => void;
 }
 
-function LargeButton({ onClickComponent }: LargeButtonProps) {
+function LargeButton({
+  title,
+  type = "button",
+  onClickComponent,
+}: LargeButtonProps) {
   return (
-    <div
-      style={{ backgroundColor: "green", padding: 20 }}
-      onClick={() => {
-        alert("Evento de clique na div");
-      }}
-    >
-      <button onClick={onClickComponent}>Apagar</button>;
-    </div>
+    <button type={type} onClick={onClickComponent}>
+      {title}
+    </button>
   );
 }
 
