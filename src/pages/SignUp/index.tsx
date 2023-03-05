@@ -1,15 +1,12 @@
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import Input from "../../components/Input";
 import LargeButton from "../../components/LargeButton";
 
 function SignUp() {
+  const [name, setName] = useState("123");
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    /* 
-      {foo: "bar", name: "Jancer"}
-      [["foo", "bar"], ["name", "Jancer"]] 
-    */
 
     const formData = new FormData(e.target as HTMLFormElement);
     const data = Object.fromEntries(formData);
@@ -17,12 +14,25 @@ function SignUp() {
     console.log(data);
   };
 
+  console.log("Componente Signup renderizada");
   return (
     <div>
-      <h1>Formulários</h1>
+      <h1>State e lifecycle</h1>
 
+      <h3>{name}</h3>
       <form onSubmit={handleSubmit}>
-        <Input name="name" title="Nome" placeholder="Insira seu nome" />
+        <label>
+          Nome: <br />
+          <input
+            placeholder={"Insira seu nome"}
+            onChange={(e) => {
+              console.log(e.target.value);
+              setName(e.target.value);
+            }}
+          />
+          <br />
+        </label>
+        {/* <Input name="name" title="Nome" placeholder="Insira seu nome" /> */}
         <Input
           name="phone"
           title="Telefone"
