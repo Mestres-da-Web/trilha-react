@@ -3,7 +3,7 @@ import Input from "../../components/Input";
 import LargeButton from "../../components/LargeButton";
 
 function SignUp() {
-  const [name, setName] = useState("123");
+  const [showComponent, setShowComponent] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,20 +19,18 @@ function SignUp() {
     <div>
       <h1>State e lifecycle</h1>
 
-      <h3>{name}</h3>
       <form onSubmit={handleSubmit}>
-        <label>
-          Nome: <br />
-          <input
-            placeholder={"Insira seu nome"}
-            onChange={(e) => {
-              console.log(e.target.value);
-              setName(e.target.value);
-            }}
-          />
-          <br />
-        </label>
-        {/* <Input name="name" title="Nome" placeholder="Insira seu nome" /> */}
+        {showComponent ? (
+          <Input name="name" title="Nome" placeholder="Insira seu nome" />
+        ) : null}
+        <button
+          onClick={() => {
+            setShowComponent(!showComponent);
+          }}
+        >
+          {showComponent ? "Remover componente" : "Adicionar componente"}
+        </button>
+        <br />
         <Input
           name="phone"
           title="Telefone"
@@ -45,7 +43,6 @@ function SignUp() {
           title="Confirmar senha"
           placeholder="Insira sua senha novamente"
         />
-
         <LargeButton title="Fazer cadastro" type="submit" />
       </form>
     </div>
