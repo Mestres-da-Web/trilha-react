@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { ChangeEvent } from "react";
 
 interface InputProps {
   title: string;
   name: string;
   placeholder: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Input({ title, name, placeholder }: InputProps) {
-  const [value, setValue] = useState("");
-
+function Input({ title, name, placeholder, onChange }: InputProps) {
   return (
     <label>
       {title} <br />
@@ -16,13 +15,9 @@ function Input({ title, name, placeholder }: InputProps) {
         type="text"
         name={name}
         placeholder={placeholder}
-        value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
+        onChange={onChange}
       />
       <br />
-      <p>{value}</p>
     </label>
   );
 }

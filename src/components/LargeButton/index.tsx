@@ -1,18 +1,12 @@
 interface LargeButtonProps {
   title: string;
   type?: "submit" | "button";
-  onClickComponent?: (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-function LargeButton({
-  title,
-  type = "button",
-  onClickComponent,
-}: LargeButtonProps) {
+function LargeButton({ title, type = "button", onClick }: LargeButtonProps) {
   return (
-    <button type={type} onClick={onClickComponent}>
+    <button type={type} onClick={onClick}>
       {title}
     </button>
   );

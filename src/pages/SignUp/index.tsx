@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import Input from "../../components/Input";
 import LargeButton from "../../components/LargeButton";
+import EffectExample from "../Examples/EffectExample";
 
 function SignUp() {
   const [showComponent, setShowComponent] = useState(false);
@@ -14,23 +15,12 @@ function SignUp() {
     console.log(data);
   };
 
-  console.log("Componente Signup renderizada");
   return (
     <div>
       <h1>State e lifecycle</h1>
 
-      <form onSubmit={handleSubmit}>
-        {showComponent ? (
-          <Input name="name" title="Nome" placeholder="Insira seu nome" />
-        ) : null}
-        <button
-          onClick={() => {
-            setShowComponent(!showComponent);
-          }}
-        >
-          {showComponent ? "Remover componente" : "Adicionar componente"}
-        </button>
-        <br />
+      {/* <form onSubmit={handleSubmit}>
+        <Input name="name" title="Nome" placeholder="Insira seu nome" />
         <Input
           name="phone"
           title="Telefone"
@@ -43,8 +33,18 @@ function SignUp() {
           title="Confirmar senha"
           placeholder="Insira sua senha novamente"
         />
-        <LargeButton title="Fazer cadastro" type="submit" />
-      </form>
+        <LargeButton title="Fazer cadastro" type="submit" /> <br />
+      </form> */}
+
+      {showComponent ? <EffectExample /> : null}
+      <button
+        type="button"
+        onClick={() => {
+          setShowComponent(!showComponent);
+        }}
+      >
+        {showComponent ? "Remover componente" : "Adicionar componente"}
+      </button>
     </div>
   );
 }
