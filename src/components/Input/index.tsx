@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import styles from "./styles.module.css";
 
 interface InputProps {
   title: string;
@@ -9,16 +10,16 @@ interface InputProps {
 
 function Input({ title, name, placeholder, onChange }: InputProps) {
   return (
-    <label>
-      {title} <br />
+    <div className={styles.container}>
+      <label className={styles.label}>{title} </label>
       <input
+        className={styles.input}
         type="text"
         name={name}
         placeholder={placeholder}
         onChange={onChange}
       />
-      <br />
-    </label>
+    </div>
   );
 }
 

@@ -1,0 +1,17 @@
+.container {
+  margin-top: 1rem;
+}
+
+.label {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--input-label);
+}
+
+.input {
+  border-width: 0;
+  border-bottom: 2px solid var(--input-placeholder);
+  padding: 0.5rem 0;
+  width: 100%;
+}
