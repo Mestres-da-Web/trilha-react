@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  background-color: var(--bg);
+}
+
+.leftColumn {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.rightColumn {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--title);
+}
+
+.description {
+  color: var(--title);
+}
+
+.form {
+  width: 40%
+}
