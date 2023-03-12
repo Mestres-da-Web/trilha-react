@@ -34,13 +34,19 @@ function SignUp() {
             placeholder="Insira seu telefone"
           />
           <Input name="email" title="E-mail" placeholder="Insira seu e-mail" />
-          <Input name="password" title="Senha" placeholder="Insira sua senha" />
+          <Input
+            name="password"
+            title="Senha"
+            placeholder="Insira sua senha"
+            password={true}
+          />
           <Input
             name="passwordConfirmation"
             title="Confirmar senha"
             placeholder="Insira sua senha novamente"
+            password
           />
-          <LargeButton title="Fazer cadastro" type="submit" /> <br />
+          <LargeButton title="Fazer cadastro" type="submit" />
         </form>
       </div>
     </div>

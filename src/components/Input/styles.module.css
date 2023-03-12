@@ -1,5 +1,6 @@
 .container {
   margin-top: 1rem;
+  position: relative;
 }
 
 .label {
@@ -14,4 +15,10 @@
   border-bottom: 2px solid var(--input-placeholder);
   padding: 0.5rem 0;
   width: 100%;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 5%;
 }

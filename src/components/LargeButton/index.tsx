@@ -1,3 +1,4 @@
+import styles from "./styles.module.css";
 interface LargeButtonProps {
   title: string;
   type?: "submit" | "button";
@@ -6,7 +7,7 @@ interface LargeButtonProps {
 
 function LargeButton({ title, type = "button", onClick }: LargeButtonProps) {
   return (
-    <button type={type} onClick={onClick}>
+    <button className={styles.button} type={type} onClick={onClick}>
       {title}
     </button>
   );
