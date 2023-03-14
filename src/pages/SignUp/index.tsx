@@ -4,6 +4,7 @@ import LargeButton from "../../components/LargeButton";
 import Illustration from "../../assets/Images/Illustration.png";
 import MWLogo from "../../assets/Images/MWLogo.png";
 import styles from "./styles.module.css";
+import { NavLink } from "react-router-dom";
 
 function SignUp() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -46,6 +47,21 @@ function SignUp() {
             placeholder="Insira sua senha novamente"
             password
           />
+
+          <p>
+            Já tem conta? <NavLink to={"/signin"}>Faça login</NavLink>
+          </p>
+
+          <div>
+            <input name="termos" type={"checkbox"} />
+
+            <p>
+              Li e concordo com os{" "}
+              <NavLink to={"/"}>Termos de Uso e Privacidade</NavLink> da
+              plataforma.
+            </p>
+          </div>
+
           <LargeButton title="Fazer cadastro" type="submit" />
         </form>
       </div>
