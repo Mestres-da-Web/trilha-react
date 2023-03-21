@@ -16,7 +16,8 @@
 
 :root {
   --primary: #462BB8;
-  --title: #44444F;
+  --light-blue: #50B5FF;
+  --text: #44444F;
   --input-label: #626262;
   --input-placeholder: #A5A5A5;
 }

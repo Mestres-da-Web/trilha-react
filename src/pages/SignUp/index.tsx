@@ -48,12 +48,12 @@ function SignUp() {
             password
           />
 
-          <p>
+          <p className={styles.loginText}>
             Já tem conta? <NavLink to={"/signin"}>Faça login</NavLink>
           </p>
 
-          <div>
-            <input name="termos" type={"checkbox"} />
+          <div className={styles.termsContainer}>
+            <input name="terms" type={"checkbox"} />
 
             <p>
               Li e concordo com os{" "}
