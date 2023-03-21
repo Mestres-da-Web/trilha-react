@@ -3,6 +3,7 @@
   flex: 1;
   flex-direction: row;
   background-color: var(--bg);
+  position: relative;
 }
 
 .leftColumn {
@@ -30,15 +31,43 @@
 .title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--title);
+  color: var(--text);
 }
 
 .description {
-  color: var(--title);
+  color: var(--text);
 }
 
 .form {
   width: 40%;
   display: flex;
   flex-direction: column;
+}
+
+.loginText {
+  color: var(--text);
+  margin-top: 1rem;
+}
+
+.loginText a {
+  color: var(--light-blue);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.termsContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+.termsContainer p {
+  color: var(--text);
+  margin-left: 1rem;
+}
+
+.termsContainer p>a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
 }
