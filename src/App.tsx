@@ -8,18 +8,20 @@ import SignIn from "./pages/SignIn";
 import ForgotPassword from "./pages/ForgotPassword";
 import NotFound from "./pages/NotFound";
 
-import UseReducerComponent from "./pages/Examples/useReducer";
+import ContextExample, { ContextProvider } from "./pages/Examples/useContext";
 
 function App() {
   return (
-    <Routes>
-      <Route index element={<Home />} />
-      <Route path="hooks" element={<UseReducerComponent />} />
-      <Route path="signup" element={<SignUp />} />
-      <Route path="signin" element={<SignIn />} />
-      <Route path="forgot" element={<ForgotPassword />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <ContextProvider>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="hooks" element={<ContextExample />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="signin" element={<SignIn />} />
+        <Route path="forgot" element={<ForgotPassword />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </ContextProvider>
   );
 }
 
