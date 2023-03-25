@@ -5,8 +5,11 @@ import Illustration from "../../assets/Images/Illustration.png";
 import MWLogo from "../../assets/Images/MWLogo.png";
 import styles from "./styles.module.css";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { context } from "../Examples/useContext";
 
 function SignUp() {
+  const { name } = useContext(context);
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -24,7 +27,7 @@ function SignUp() {
       </div>
 
       <div className={styles.rightColumn}>
-        <h1 className={styles.title}>Seja bem vindo!</h1>
+        <h1 className={styles.title}>Seja bem vindo, {name}!</h1>
         <p className={styles.description}>Faça o cadastro para continuar</p>
 
         <form className={styles.form} onSubmit={handleSubmit}>
