@@ -7,13 +7,14 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import ForgotPassword from "./pages/ForgotPassword";
 import NotFound from "./pages/NotFound";
-import UseRefExample from "./pages/Examples/useRef";
+
+import UseMemoExample from "./pages/Examples/useMemo";
 
 function App() {
   return (
     <Routes>
       <Route index element={<Home />} />
-      <Route path="hooks" element={<UseRefExample />} />
+      <Route path="hooks" element={<UseMemoExample />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="signin" element={<SignIn />} />
       <Route path="forgot" element={<ForgotPassword />} />
