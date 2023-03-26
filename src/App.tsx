@@ -8,13 +8,13 @@ import SignIn from "./pages/SignIn";
 import ForgotPassword from "./pages/ForgotPassword";
 import NotFound from "./pages/NotFound";
 
-import UseMemoExample from "./pages/Examples/useMemo";
+import UseCallbackExample from "./pages/Examples/useCallback";
 
 function App() {
   return (
     <Routes>
       <Route index element={<Home />} />
-      <Route path="hooks" element={<UseMemoExample />} />
+      <Route path="hooks" element={<UseCallbackExample />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="signin" element={<SignIn />} />
       <Route path="forgot" element={<ForgotPassword />} />
