@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../Header";
 import styles from "./styles.module.css";
 
-function Layout() {
+function LayoutAuth() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -15,4 +15,4 @@ function Layout() {
   );
 }
 
-export default Layout;
+export default LayoutAuth;

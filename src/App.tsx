@@ -1,24 +1,16 @@
-import React from "react";
-import SignUp from "./pages/SignUp";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import LayoutProduct from "./components/LayoutProduct";
 
 import "./global.styles.css";
-import Home from "./pages/Home";
-import SignIn from "./pages/SignIn";
-import ForgotPassword from "./pages/ForgotPassword";
-import NotFound from "./pages/NotFound";
 
-import UseCallbackExample from "./pages/Examples/useCallback";
+import Products from "./pages/Products";
 
 function App() {
   return (
     <Routes>
-      <Route index element={<Home />} />
-      <Route path="hooks" element={<UseCallbackExample />} />
-      <Route path="signup" element={<SignUp />} />
-      <Route path="signin" element={<SignIn />} />
-      <Route path="forgot" element={<ForgotPassword />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="/" element={<LayoutProduct />}>
+        <Route path="product" element={<Products />} />
+      </Route>
     </Routes>
   );
 }
