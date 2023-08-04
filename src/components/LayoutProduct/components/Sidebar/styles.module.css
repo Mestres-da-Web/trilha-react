@@ -1,5 +1,16 @@
 .container {
   flex: 5%;
-  background-color: red;
+  background-color: var(--primary);
   min-width: 100px;
+}
+
+.navUl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+}
+
+.secondIcon {
+  margin-top: 80px;
 }
