@@ -8,6 +8,10 @@
   font-family: 'Noto Sans', sans-serif;
 }
 
+ul {
+  padding: 0;
+}
+
 #root {
   display: flex;
   flex-direction: column;
