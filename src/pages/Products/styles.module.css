@@ -2,18 +2,3 @@
   display: flex;
   height: 100%;
 }
-
-.leftContainer {
-  flex: 5%;
-  background-color: red;
-}
-
-.rightContainer {
-  flex: 95%;
-  background-color: blue;
-}
-
-.header {
-  background-color: yellow;
-  height: 3rem;
-}
