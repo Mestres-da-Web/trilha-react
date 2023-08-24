@@ -1,9 +1,18 @@
+import ProductSubHeader from "./components/ProductSubHeader";
 import styles from "./styles.module.css";
 
 function Products() {
+  const handleAddProduct = () => {};
+  const handlePriceChange = () => {};
+  const handleVisibilityChange = () => {};
+
   return (
-    <div>
-      <h1>Hello from product</h1>
+    <div className={styles.container}>
+      <ProductSubHeader
+        onAddProduct={handleAddProduct}
+        onPriceChange={handlePriceChange}
+        onVisibilityChange={handleVisibilityChange}
+      />
     </div>
   );
 }
