@@ -1,4 +1,5 @@
 import ProductSubHeader from "./components/ProductSubHeader";
+import ProductTable from "./components/ProductTable";
 import styles from "./styles.module.css";
 
 function Products() {
@@ -13,6 +14,8 @@ function Products() {
         onPriceChange={handlePriceChange}
         onVisibilityChange={handleVisibilityChange}
       />
+
+      <ProductTable />
     </div>
   );
 }
