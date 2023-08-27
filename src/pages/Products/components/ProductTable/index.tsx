@@ -16,12 +16,37 @@ function ProductTable() {
       .then((data) => setProducts(data.results));
   }, []);
 
+  // table - thead - tbody - tr - th - td
+
+  console.log(products);
+
   return (
     <div>
-      <h1>ProductTable</h1>
-      {products.map((product) => (
-        <h1>{product.name}</h1>
-      ))}
+      <table>
+        <tr>
+          <th>Nome do produto</th>
+          <th>Marca</th>
+          <th>#ID</th>
+          <th>Entregue por</th>
+          <th>Qº Estoque</th>
+          <th>Preço</th>
+        </tr>
+
+        {products.map((product) => (
+          <tr>
+            <td>{product.name}</td>
+            <td>Mestres da web</td>
+            <td>111</td>
+            <td>Amazon</td>
+            <td>234</td>
+            <td>100</td>
+            <td>
+              <button>Editar</button>
+              <button>Excluir</button>
+            </td>
+          </tr>
+        ))}
+      </table>
     </div>
   );
 }
