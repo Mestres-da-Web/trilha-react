@@ -16,10 +16,6 @@ function ProductTable() {
       .then((data) => setProducts(data.results));
   }, []);
 
-  // table - thead - tbody - tr - th - td
-
-  console.log(products);
-
   return (
     <div>
       <table>
