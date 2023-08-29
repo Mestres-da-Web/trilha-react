@@ -1,3 +1,4 @@
+import CreateProduct from "./components/CreateProduct";
 import ProductSubHeader from "./components/ProductSubHeader";
 import ProductTable from "./components/ProductTable";
 import styles from "./styles.module.css";
@@ -16,6 +17,12 @@ function Products() {
       />
 
       <ProductTable />
+
+      <br />
+      <br />
+      <br />
+
+      <CreateProduct />
     </div>
   );
 }
