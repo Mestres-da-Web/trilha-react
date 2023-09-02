@@ -6,11 +6,17 @@ interface ButtonProps {
 }
 
 function Button({ onAddProduct }: ButtonProps) {
-  const { value } = useContext(GlobalContext);
+  const {
+    methods: { startAddingProduct },
+  } = useContext(GlobalContext);
+
+  const handleClick = () => {
+    startAddingProduct();
+  };
+
   return (
     <div>
-      <button>Adicionar</button>
-      <h1>Value: {value}</h1>
+      <button onClick={handleClick}>Adicionar</button>
     </div>
   );
 }
