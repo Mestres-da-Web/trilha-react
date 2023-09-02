@@ -3,7 +3,9 @@ import axios from "axios";
 import { GlobalContext } from "../../../../context/GlobalContext";
 
 function CreateProduct() {
-  const { value } = useContext(GlobalContext);
+  const {
+    methods: { finishAddingProduct },
+  } = useContext(GlobalContext);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -19,6 +21,8 @@ function CreateProduct() {
     } catch (error) {
       console.log(error);
     }
+
+    finishAddingProduct();
   };
 
   return (
@@ -47,7 +51,6 @@ function CreateProduct() {
         <br />
         <br />
         <button type="submit">Adicionar produto</button>
-        <h1>Valor do contexto é: {value}</h1>
       </form>
     </div>
   );

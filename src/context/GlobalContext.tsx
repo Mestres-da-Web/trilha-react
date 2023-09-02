@@ -1,7 +1,13 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 interface GlobalContextProps {
-  value: string;
+  state: {
+    isAddingProduct: boolean;
+  };
+  methods: {
+    startAddingProduct: () => void;
+    finishAddingProduct: () => void;
+  };
 }
 
 export const GlobalContext = createContext<GlobalContextProps>(
@@ -11,8 +17,27 @@ export const GlobalContext = createContext<GlobalContextProps>(
 export const GlobalContextProvider = ({
   children,
 }: React.PropsWithChildren) => {
+  const [isAddingProduct, setIsAddingProduct] = useState(false);
+
+  const startAddingProduct = () => {
+    setIsAddingProduct(true);
+  };
+
+  const finishAddingProduct = () => {
+    setIsAddingProduct(false);
+  };
+
+  const state = {
+    isAddingProduct,
+  };
+
+  const methods = {
+    startAddingProduct,
+    finishAddingProduct,
+  };
+
   return (
-    <GlobalContext.Provider value={{ value: "Mouse" }}>
+    <GlobalContext.Provider value={{ state, methods }}>
       {children}
     </GlobalContext.Provider>
   );
