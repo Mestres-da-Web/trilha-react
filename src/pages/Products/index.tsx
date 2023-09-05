@@ -4,6 +4,7 @@ import ProductSubHeader from "./components/ProductSubHeader";
 import ProductTable from "./components/ProductTable";
 import styles from "./styles.module.css";
 import { GlobalContext } from "../../context/GlobalContext";
+import Modal from "../../components/Modal";
 
 function Products() {
   const {
@@ -28,7 +29,11 @@ function Products() {
       <br />
       <br />
 
-      {isAddingProduct ? <CreateProduct /> : null}
+      {isAddingProduct ? (
+        <Modal>
+          <CreateProduct />
+        </Modal>
+      ) : null}
     </div>
   );
 }

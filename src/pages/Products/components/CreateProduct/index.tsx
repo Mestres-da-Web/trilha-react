@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import axios from "axios";
 import { GlobalContext } from "../../../../context/GlobalContext";
+import styles from "./style.module.css";
 
 function CreateProduct() {
   const {
@@ -26,7 +27,7 @@ function CreateProduct() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Adicionar novo produto</h1>
 
       <form onSubmit={handleSubmit}>
