@@ -5,6 +5,8 @@ import ProductTable from "./components/ProductTable";
 import styles from "./styles.module.css";
 import { GlobalContext } from "../../context/GlobalContext";
 import Modal from "../../components/Modal";
+import { ReactComponent as PlusIcon } from "../../assets/Icons/plus.svg";
+import { Button } from "../../components/Button";
 
 function Products() {
   const {
@@ -24,6 +26,8 @@ function Products() {
       />
 
       <ProductTable />
+
+      {/* <Button text="Adicionar produto" icon={PlusIcon} /> */}
 
       <br />
       <br />
