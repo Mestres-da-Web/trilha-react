@@ -27,12 +27,6 @@ function Products() {
 
       <ProductTable />
 
-      {/* <Button text="Adicionar produto" icon={PlusIcon} /> */}
-
-      <br />
-      <br />
-      <br />
-
       {isAddingProduct ? (
         <Modal>
           <CreateProduct />

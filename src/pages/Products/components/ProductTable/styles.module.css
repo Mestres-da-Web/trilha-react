@@ -1,0 +1,33 @@
+.container {
+  margin-top: 50px;
+}
+
+.tableContainer {
+  width: 100%;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.tableContainer tr {
+  font-size: inherit;
+  text-transform: inherit;
+}
+
+.tableContainer th {
+  color: var(--heading);
+  text-align: left;
+  font-size: inherit;
+  text-transform: inherit;
+}
+
+.tableContainer td {
+  color: var(--table-data);
+  font-size: inherit;
+  text-transform: inherit;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.row:hover {
+  background-color: #efefef;
+}
