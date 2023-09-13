@@ -1,0 +1,6 @@
+.container {
+  color: var(--heading);
+  text-align: left;
+  font-size: inherit;
+  text-transform: inherit;
+}

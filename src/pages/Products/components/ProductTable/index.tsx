@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { ReactComponent as ProductIcon } from "../../../../assets/Icons/macbook.svg";
+import TableHead from "./components/TableHead";
+import TableRow from "./components/TableRow";
 
 interface IProduct {
   id: string;
@@ -21,40 +23,27 @@ function ProductTable() {
   return (
     <div className={styles.container}>
       <table className={styles.tableContainer}>
-        <tr>
-          <th>Nome do produto</th>
-          <th>Marca</th>
-          <th>#ID</th>
-          <th>Entregue por</th>
-          <th>Qº Estoque</th>
-          <th>Preço</th>
-        </tr>
+        <TableHead
+          headings={[
+            "Nome do produto",
+            "Marca",
+            "#ID",
+            "Entregue por",
+            "Qº Estoque",
+            "Preço",
+          ]}
+        />
 
         {products.map((product) => (
-          <tr className={styles.row}>
-            <td
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 20,
-                paddingLeft: 50,
-                marginBlock: 10,
-              }}
-            >
-              <ProductIcon />
-              {product.name}
-            </td>
-            <td>Mestres da web</td>
-            <td>111</td>
-            <td>Amazon</td>
-            <td>234</td>
-            <td>100</td>
-            <td>
-              <button>Editar</button>
-              <button>Excluir</button>
-            </td>
-          </tr>
+          <TableRow
+            icon={ProductIcon}
+            name={product.name}
+            brand="Mestres da web"
+            id="111"
+            delivered_by="Amazon"
+            quantity="333"
+            price="3939"
+          />
         ))}
       </table>
     </div>
