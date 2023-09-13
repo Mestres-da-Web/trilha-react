@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import styles from "./styles.module.css";
+import { ReactComponent as ProductIcon } from "../../../../assets/Icons/macbook.svg";
 
 interface IProduct {
   id: string;
@@ -17,8 +19,8 @@ function ProductTable() {
   }, []);
 
   return (
-    <div>
-      <table>
+    <div className={styles.container}>
+      <table className={styles.tableContainer}>
         <tr>
           <th>Nome do produto</th>
           <th>Marca</th>
@@ -29,8 +31,20 @@ function ProductTable() {
         </tr>
 
         {products.map((product) => (
-          <tr>
-            <td>{product.name}</td>
+          <tr className={styles.row}>
+            <td
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 20,
+                paddingLeft: 50,
+                marginBlock: 10,
+              }}
+            >
+              <ProductIcon />
+              {product.name}
+            </td>
             <td>Mestres da web</td>
             <td>111</td>
             <td>Amazon</td>
