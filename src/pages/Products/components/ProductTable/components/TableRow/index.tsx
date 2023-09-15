@@ -1,4 +1,6 @@
 import styles from "./styles.module.css";
+import { ReactComponent as DeleteIcon } from "../../../../../../assets/Icons/delete.svg";
+import { ReactComponent as EditIcon } from "../../../../../../assets/Icons/edit.svg";
 
 interface TableRowProps {
   icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
@@ -30,9 +32,9 @@ const TableRow = ({
       <td>{delivered_by}</td>
       <td>{quantity}</td>
       <td>{price}</td>
-      <td>
-        <button>Editar</button>
-        <button>Excluir</button>
+      <td className={styles.buttonsContainer}>
+        <EditIcon className={styles.iconButton} />
+        <DeleteIcon className={styles.iconButton} />
       </td>
     </tr>
   );
