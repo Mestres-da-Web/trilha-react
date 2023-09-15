@@ -18,3 +18,12 @@
   padding-left: 50px;
   margin-block: 10px;
 }
+
+.buttonsContainer {
+  padding-left: 40px;
+}
+
+.iconButton {
+  margin-left: 20px;
+  cursor: pointer;
+}
