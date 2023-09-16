@@ -2,6 +2,7 @@ import { useContext } from "react";
 import axios from "axios";
 import { GlobalContext } from "../../../../context/GlobalContext";
 import styles from "./style.module.css";
+import { api } from "../../../../services/api";
 
 function CreateProduct() {
   const {
@@ -13,10 +14,13 @@ function CreateProduct() {
 
     const formData = new FormData(e.target as HTMLFormElement);
 
-    const data = Object.fromEntries(formData);
+    const data = Object.fromEntries(formData) as any;
 
     try {
-      const response = await axios.post("http://localhost:4000/products", data);
+      const response = await api.createProduct({
+        name: data.name,
+        brand_id: data.brand_id,
+      });
 
       console.log(response);
     } catch (error) {
