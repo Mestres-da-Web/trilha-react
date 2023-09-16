@@ -3,21 +3,21 @@ import styles from "./styles.module.css";
 import { ReactComponent as ProductIcon } from "../../../../assets/Icons/macbook.svg";
 import TableHead from "./components/TableHead";
 import TableRow from "./components/TableRow";
-
-interface IProduct {
-  id: string;
-  name: string;
-  brand_id: string;
-  specification_id: string;
-}
+import { IProduct } from "../../../../domain/models/product";
+import { api } from "../../../../services/api";
 
 function ProductTable() {
   const [products, setProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/products", { method: "GET" })
-      .then((res) => res.json())
-      .then((data) => setProducts(data.results));
+    (async () => {
+      try {
+        const response = await api.getProducts();
+        setProducts(response);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, []);
 
   return (
