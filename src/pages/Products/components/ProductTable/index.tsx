@@ -1,25 +1,14 @@
-import { useEffect, useState } from "react";
-import styles from "./styles.module.css";
 import { ReactComponent as ProductIcon } from "../../../../assets/Icons/macbook.svg";
+import { IProduct } from "../../../../domain/models/product";
 import TableHead from "./components/TableHead";
 import TableRow from "./components/TableRow";
-import { IProduct } from "../../../../domain/models/product";
-import { api } from "../../../../services/api";
+import styles from "./styles.module.css";
 
-function ProductTable() {
-  const [products, setProducts] = useState<IProduct[]>([]);
+interface ProductTableProps {
+  products: IProduct[];
+}
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await api.getProducts();
-        setProducts(response);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
-
+function ProductTable({ products }: ProductTableProps) {
   return (
     <div className={styles.container}>
       <table className={styles.tableContainer}>
