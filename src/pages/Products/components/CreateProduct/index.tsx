@@ -1,10 +1,13 @@
 import { useContext } from "react";
-import axios from "axios";
 import { GlobalContext } from "../../../../context/GlobalContext";
-import styles from "./style.module.css";
 import { api } from "../../../../services/api";
+import styles from "./style.module.css";
 
-function CreateProduct() {
+interface CreateProductProps {
+  onCreate?: () => void;
+}
+
+function CreateProduct({ onCreate }: CreateProductProps) {
   const {
     methods: { finishAddingProduct },
   } = useContext(GlobalContext);
@@ -21,6 +24,8 @@ function CreateProduct() {
         name: data.name,
         brand_id: data.brand_id,
       });
+
+      if (onCreate) onCreate();
 
       console.log(response);
     } catch (error) {

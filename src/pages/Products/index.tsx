@@ -1,21 +1,38 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CreateProduct from "./components/CreateProduct";
 import ProductSubHeader from "./components/ProductSubHeader";
 import ProductTable from "./components/ProductTable";
 import styles from "./styles.module.css";
 import { GlobalContext } from "../../context/GlobalContext";
 import Modal from "../../components/Modal";
-import { ReactComponent as PlusIcon } from "../../assets/Icons/plus.svg";
-import { Button } from "../../components/Button";
+import { api } from "../../services/api";
 
 function Products() {
   const {
-    state: { isAddingProduct },
+    state: { isAddingProduct, products },
+    methods: { updateProducts },
   } = useContext(GlobalContext);
 
   const handleAddProduct = () => {};
   const handlePriceChange = () => {};
   const handleVisibilityChange = () => {};
+
+  const handleGetProducts = async () => {
+    try {
+      const response = await api.getProducts();
+      updateProducts(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    handleGetProducts();
+  }, []);
+
+  const handleProductCreation = () => {
+    handleGetProducts();
+  };
 
   return (
     <div className={styles.container}>
@@ -25,11 +42,11 @@ function Products() {
         onVisibilityChange={handleVisibilityChange}
       />
 
-      <ProductTable />
+      <ProductTable products={products} />
 
       {isAddingProduct ? (
         <Modal>
-          <CreateProduct />
+          <CreateProduct onCreate={handleProductCreation} />
         </Modal>
       ) : null}
     </div>
