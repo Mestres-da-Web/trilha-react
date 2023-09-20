@@ -6,9 +6,10 @@ import styles from "./styles.module.css";
 
 interface ProductTableProps {
   products: IProduct[];
+  onDelete: (id: string) => void;
 }
 
-function ProductTable({ products }: ProductTableProps) {
+function ProductTable({ products, onDelete }: ProductTableProps) {
   return (
     <div className={styles.container}>
       <table className={styles.tableContainer}>
@@ -25,6 +26,7 @@ function ProductTable({ products }: ProductTableProps) {
 
         {products.map((product) => (
           <TableRow
+            onDelete={() => onDelete(product.id)}
             icon={ProductIcon}
             name={product.name}
             brand="Mestres da web"

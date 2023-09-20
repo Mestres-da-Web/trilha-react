@@ -11,4 +11,7 @@ export const api = {
   async createProduct(data: ICreateProductDTO): Promise<void> {
     await client.post("/products", data);
   },
+  async deleteProduct(id: string): Promise<void> {
+    await client.delete(`/products/${id}`);
+  },
 };
