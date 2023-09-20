@@ -3,6 +3,7 @@ import { ReactComponent as DeleteIcon } from "../../../../../../assets/Icons/del
 import { ReactComponent as EditIcon } from "../../../../../../assets/Icons/edit.svg";
 
 interface TableRowProps {
+  onDelete: () => void;
   icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   name: string;
   brand: string;
@@ -13,6 +14,7 @@ interface TableRowProps {
 }
 
 const TableRow = ({
+  onDelete,
   icon: Icon,
   name,
   brand,
@@ -34,7 +36,7 @@ const TableRow = ({
       <td>{price}</td>
       <td className={styles.buttonsContainer}>
         <EditIcon className={styles.iconButton} />
-        <DeleteIcon className={styles.iconButton} />
+        <DeleteIcon className={styles.iconButton} onClick={onDelete} />
       </td>
     </tr>
   );
