@@ -1,5 +1,8 @@
 import { useState } from "react";
 import DeleteFeedback from "./components/DeleteFeedback";
+import styles from "./styles.module.css";
+import { ReactComponent as DeleteConfirmationIcon } from "../../../../assets/Icons/delete-confirmation.svg";
+import { Button } from "../../../../components/Button";
 
 interface DeleteProductProps {
   onConfirm: () => void;
@@ -19,10 +22,16 @@ const DeleteProduct = ({ onConfirm, onFinish }: DeleteProductProps) => {
       {showFeedback ? (
         <DeleteFeedback onFinish={onFinish} />
       ) : (
-        <div style={{ backgroundColor: "white" }}>
+        <div className={styles.container}>
+          <DeleteConfirmationIcon />
           <h1>Tem certeza que deseja excluir este produto?</h1>
-          <p>Após excluir, você não poderá reverter a ação</p>
-          <button onClick={handleDelete}>Excluir produto</button>
+          <p className={styles.textDescription}>
+            Após excluir, você não poderá <br /> reverter a ação
+          </p>
+
+          <Button.Root onClick={handleDelete} type="error">
+            <Button.Text text="Excluir produto" />
+          </Button.Root>
         </div>
       )}
     </>

@@ -1,7 +1,6 @@
 .root {
   display: flex;
   flex-direction: row;
-  background-color: var(--primary);
   align-items: center;
   align-self: center;
   border: 0;
@@ -9,6 +8,15 @@
   padding-block: 10px;
   padding-inline: 20px;
   cursor: pointer;
+}
+
+.defaultColor {
+  background-color: var(--primary);
+}
+
+.errorColor {
+  background-color: var(--error);
+  padding-inline: 70px;
 }
 
 .text {
