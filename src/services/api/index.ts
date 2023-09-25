@@ -1,5 +1,6 @@
 import { client } from "./client";
 import { IProduct } from "../../domain/models/product";
+import { IBrand } from "../../domain/models/brand";
 import { ICreateProductDTO } from "../../domain/dtos/createProduct";
 import { IApiResponse } from "../../domain/dtos/apiResponse";
 
@@ -13,5 +14,10 @@ export const api = {
   },
   async deleteProduct(id: string): Promise<void> {
     await client.delete(`/products/${id}`);
+  },
+  async getBrands(): Promise<IBrand[]> {
+    const response = await client.get<IApiResponse<IBrand[]>>("/brands");
+
+    return response.data.results;
   },
 };

@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../../../context/GlobalContext";
 import { api } from "../../../../services/api";
 import styles from "./style.module.css";
+import { IBrand } from "../../../../domain/models/brand";
 
 interface CreateProductProps {
   onCreate?: () => void;
@@ -11,6 +12,16 @@ function CreateProduct({ onCreate }: CreateProductProps) {
   const {
     methods: { finishAddingProduct },
   } = useContext(GlobalContext);
+
+  const [brands, setBrands] = useState<IBrand[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const response = await api.getBrands();
+
+      setBrands(response);
+    })();
+  }, []);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -54,8 +65,9 @@ function CreateProduct({ onCreate }: CreateProductProps) {
         <label htmlFor="brand">Marca</label>
         <br />
         <select id="brand" name="brand_id">
-          <option value="33796dcd-dd1f-4451-bc57-fd9e5d3715a6">Samsung</option>
-          <option value="ec04eaa3-5f18-48db-bb56-817a94df78fa">Apple</option>
+          {brands.map((brand) => {
+            return <option value={brand.id}>{brand.name}</option>;
+          })}
         </select>
 
         <br />

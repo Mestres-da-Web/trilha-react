@@ -27,4 +27,7 @@ ul {
   --heading: #171717;
   --table-data: #5a5a5a;
   --error: #ff1a1a;
+  --border: #f1f1f5;
+  --text-secondary: #44444f;
+  --text-tertiary: #92929d;
 }
