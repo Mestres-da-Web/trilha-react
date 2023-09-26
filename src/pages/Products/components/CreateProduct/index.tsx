@@ -3,6 +3,10 @@ import { GlobalContext } from "../../../../context/GlobalContext";
 import { api } from "../../../../services/api";
 import styles from "./style.module.css";
 import { IBrand } from "../../../../domain/models/brand";
+import InputText from "../../../../components/InputText";
+import InputSelect from "../../../../components/InputSelect";
+import ButtonRoot from "../../../../components/Button/ButtonRoot";
+import { Button } from "../../../../components/Button";
 
 interface CreateProductProps {
   onCreate?: () => void;
@@ -48,31 +52,38 @@ function CreateProduct({ onCreate }: CreateProductProps) {
 
   return (
     <div className={styles.container}>
-      <h1>Adicionar novo produto</h1>
+      <h1 className={styles.title}>Adicionar novo produto</h1>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Nome</label>
-        <br />
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Nome do produto"
-        />
-        <br />
-        <br />
+        <div className={styles.formContainer}>
+          <div className={styles.row}>
+            <InputText
+              name="name"
+              placeholder="Nome do produto"
+              label="Nome do produto"
+            />
 
-        <label htmlFor="brand">Marca</label>
-        <br />
-        <select id="brand" name="brand_id">
-          {brands.map((brand) => {
-            return <option value={brand.id}>{brand.name}</option>;
-          })}
-        </select>
+            <InputText
+              name="loja_de_venda"
+              placeholder="Loja de venda"
+              label="Loja de venda"
+            />
 
-        <br />
-        <br />
-        <button type="submit">Adicionar produto</button>
+            <InputSelect
+              name="brand_id"
+              label="Marca"
+              options={brands.map((brand) => {
+                return { name: brand.name, value: brand.id };
+              })}
+            />
+          </div>
+
+          <div style={{ flex: 0.9 }}></div>
+
+          <Button.Root>
+            <Button.Text text="Adicionar produto" />
+          </Button.Root>
+        </div>
       </form>
     </div>
   );
