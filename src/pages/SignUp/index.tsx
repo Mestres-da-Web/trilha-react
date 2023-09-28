@@ -4,19 +4,34 @@ import LargeButton from "../../components/LargeButton";
 import Illustration from "../../assets/Images/Illustration.png";
 import MWLogo from "../../assets/Images/MWLogo.png";
 import styles from "./styles.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { context } from "../Examples/useContext";
+import { api } from "../../services/api";
 
 function SignUp() {
   const { name } = useContext(context);
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.target as HTMLFormElement);
-    const data = Object.fromEntries(formData);
+    const data = Object.fromEntries(formData) as Record<string, string>;
 
-    console.log(data);
+    // Validação dos dados
+
+    try {
+      await api.createUser({
+        email: data.email,
+        name: data.name,
+        password: data.password,
+      });
+
+      navigate("/signin");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
