@@ -1,7 +1,9 @@
 import { client } from "./client";
 import { IProduct } from "../../domain/models/product";
+import { IUser } from "../../domain/models/user";
 import { IBrand } from "../../domain/models/brand";
 import { ICreateProductDTO } from "../../domain/dtos/createProduct";
+import { ICreateUserDTO } from "../../domain/dtos/createUser";
 import { IApiResponse } from "../../domain/dtos/apiResponse";
 
 export const api = {
@@ -19,5 +21,10 @@ export const api = {
     const response = await client.get<IApiResponse<IBrand[]>>("/brands");
 
     return response.data.results;
+  },
+  async createUser(data: ICreateUserDTO): Promise<IUser> {
+    const response = await client.post<IUser>("/users", data);
+
+    return response.data;
   },
 };
