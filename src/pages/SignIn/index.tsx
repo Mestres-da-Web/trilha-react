@@ -8,6 +8,7 @@ import Illustration from "../../assets/Images/Illustration.png";
 import MWLogo from "../../assets/Images/MWLogo.png";
 
 function SignIn() {
+  const navigate = useNavigate();
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -21,7 +22,7 @@ function SignIn() {
       password: data.password,
     });
 
-    console.log(response);
+    navigate("/product");
   };
 
   return (
